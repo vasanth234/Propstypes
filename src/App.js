@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
+import PropTypes from 'prop-types'
+
+function Child(props){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+<h2 style={{color:'green'}}>{props.name}</h2>
+<p className='text-primary'>{props.age}</p>
+</>
+  )
+}
+//In below we had mentioned as isRequired means it is mandatory field to be mention
+Child.propTypes={
+  name:PropTypes.string.isRequired,
+  age:PropTypes.number
 }
 
-export default App;
+
+
+const App = () => {
+  //Here in below we have given the props are name and age in the corret format of datatpe ,so no issues will be in console.
+  return (
+    <div>
+      
+   <Child name="karna" age={67}/>
+
+    </div>
+  )
+}
+
+export default App
